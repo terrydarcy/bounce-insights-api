@@ -1,7 +1,7 @@
 let nasaAPIRouter = require('express').Router();
-let nasa_api_controller = require('../controllers/nasaAPIController');
+let nasa_api_controller = require('../controllers/nasaApiController');
 import { check } from 'express-validator';
-import { RoverType } from '../models/NasaApiInterface';
+import { RoverType } from '../models/nasaApiInterface';
 
 const validateParams = [
   check('sol').isInt({ min: 0 }).withMessage('Sol must be a non-negative integer.'),

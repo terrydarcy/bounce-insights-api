@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator';
 import { NasaApiService } from '../services/nasaApiService';
-import { RoverImageData, ApodData, RoverType } from '../models/NasaApiInterface';
+import { RoverImageData, ApodData, RoverType } from '../models/nasaApiInterface';
 import { Request, Response } from 'express';
 const nasaApiService = new NasaApiService();
 

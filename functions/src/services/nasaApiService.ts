@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RoverType, RoverImageData, PhotoManifest, ApodData, WeatherData } from '../models/NasaApiInterface';
+import { RoverType, RoverImageData, PhotoManifest, ApodData, WeatherData } from '../models/nasaApiInterface';
 import { NasaApiError } from '../utils/nasaApiError';
 
 export class NasaApiService {
