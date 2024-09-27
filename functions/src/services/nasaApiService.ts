@@ -55,6 +55,11 @@ export class NasaApiService {
     return this.handleApiCall<RoverImageData[]>(url);
   }
 
+  async getRoverImagesForEarthDate(year: number, month: number, day: number, roverType: RoverType, page: number): Promise<RoverImageData[]> {
+    const url = `${this.baseUrl}mars-photos/api/v1/rovers/${roverType}/photos?earth_date=${year}-${month}-${day}&api_key=${this.apiKey}&page=${page}`;
+    return this.handleApiCall<RoverImageData[]>(url);
+  }
+
   async getMarsWeather(): Promise<WeatherData> {
     const url = `${this.baseUrl}insight_weather/?api_key=${this.apiKey}&feedtype=json&ver=1.0`;
     return this.handleApiCall<WeatherData>(url);
