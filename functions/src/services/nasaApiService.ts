@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RoverType, RoverImageData, PhotoManifest, ApodData, WeatherData } from '../models/nasaApiInterface';
+import { RoverType, RoverImageResponse, RoverImageData, PhotoManifest, ApodData, WeatherData } from '../models/nasaApiInterface';
 import { NasaApiError } from '../utils/nasaApiError';
 
 export class NasaApiService {
@@ -55,9 +55,14 @@ export class NasaApiService {
     return this.handleApiCall<RoverImageData[]>(url);
   }
 
-  async getRoverImagesForEarthDate(year: number, month: number, day: number, roverType: RoverType, page: number): Promise<RoverImageData[]> {
+  async getRoverImagesForEarthDate(year: number, month: number, day: number, roverType: RoverType, page: number): Promise<RoverImageResponse> {
     const url = `${this.baseUrl}mars-photos/api/v1/rovers/${roverType}/photos?earth_date=${year}-${month}-${day}&api_key=${this.apiKey}&page=${page}`;
-    return this.handleApiCall<RoverImageData[]>(url);
+
+    // await this.getRoverManifest(roverType).then((data) => {
+    //   console.log('manifest', data);
+    // });
+
+    return this.handleApiCall<RoverImageResponse>(url);
   }
 
   async getMarsWeather(): Promise<WeatherData> {

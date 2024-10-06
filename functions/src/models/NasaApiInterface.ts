@@ -25,6 +25,10 @@ export interface RoverImageData {
   };
 }
 
+export interface RoverImageResponse {
+  photos: RoverImageData[];
+}
+
 export interface WeatherData {
   [key: string]: {
     AT: {

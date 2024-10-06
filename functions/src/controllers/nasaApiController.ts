@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator';
 import { NasaApiService } from '../services/nasaApiService';
-import { RoverImageData, ApodData, RoverType } from '../models/nasaApiInterface';
+import { RoverImageData, RoverImageResponse, ApodData, RoverType } from '../models/nasaApiInterface';
 import { Request, Response } from 'express';
 const nasaApiService = new NasaApiService();
 
@@ -47,11 +47,10 @@ exports.getRoverImagesForEarthDate = function (req: Request, res: Response) {
   const rover_type = req.query.rover_type as RoverType;
   const page = Number(req.query.page);
 
-  console.log(year, month, day, rover_type, page);
   return nasaApiService
     .getRoverImagesForEarthDate(year, month, day, rover_type, page)
-    .then((data: RoverImageData[]) => {
-      res.send(data);
+    .then((data: RoverImageResponse) => {
+      res.send(data.photos);
     })
     .catch((error) => {
       res.status(500).send(error.message);
