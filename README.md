@@ -6,9 +6,9 @@ This project facilitates bounce-insights-ui (https://github.com/terrydarcy/bounc
 
 ## How to run:
 
-npm i
-npm i -g firebase-tools
-firebase login (I will need to add your google account to the project. Please contact me by email for help with this)
+- npm i
+- npm i -g firebase-tools
+- firebase login (I will need to add your google account to the project. Please contact me by email for help with this)
 
-cd ./functions
-npm run serve
+- cd ./functions
+- npm run serve
